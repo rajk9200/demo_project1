@@ -1,0 +1,40 @@
+{% extends 'base.html'%}
+
+{% block title%}Homepage{% endblock%}
+
+{% block body%}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h1 class="text-center bg-danger p-2 text-white">Result</h1>
+
+            <div class="data">
+                {% for res in resposts%}
+                    <li><a href="{% url 'details' res.pk %}">{{ res.pk}}{{ res.name}}</a></li>
+                {% endfor%}
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <h1 class="text-center bg-danger p-2 text-white">Admit Card</h1>
+            <div class="data">
+                {% for admt in jobadmtcards%}
+                    <li><a href="{% url 'details' admt.pk %}">{{ admt.name}}</a></li>
+                {% endfor%}
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h1 class="text-center bg-danger p-2 text-white">Letest Jobs</h1>
+            <div class="data">
+                {% for job in jobposts%}
+                   <li><a href="{% url 'details' job.pk %}">{{ job.name}}</a></li>
+                {% endfor%}
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+{% endblock%}
